@@ -1,1 +1,0 @@
-9999999999{"name": "strict_functions", "version": "2020.2.4", "summary": "Decorators for function scope control, overloading, type safety, thread safety, cache control, tracing and even self awareness!", "platform": "", "requires_dist": null, "requires_python": null, "files": [], "_cache_version": "1.0.0"}
