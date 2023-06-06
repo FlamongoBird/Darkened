@@ -16,26 +16,23 @@ main = f"""
 term = terminal.Terminal()
 
 def main_menu():
-	path = ["Main"]
-	while True:
-		main[-3] = f"{colors.menu_path}{'>'.join(path)}{colors.reset}"
-		choice = term.get_input(
-			"prompt", 
-			main, 
-			border=borders.default,
-			prompts=[
-				["Dungeons", 1],
-				["PvP", 2],
-				["Profile", 3],
-				["Leaderboard", 4],
-				["News", 5],
-				["Exit", "e"],
-			],
-			align="right",
-			selector=f"{colors.selector}>"
-		)
+    path = ["Main"]
+    while True:
+        main[-3] = f"{colors.menu_path}{'>'.join(path)}{colors.reset}"
+        choice = term.get_input(
+            "prompt", 
+            main, 
+            border=borders.default,
+            prompts=[
+                ["Play", 1],
+                ["Settings", 2],
+                ["Exit", "e"],
+            ],
+            align="right",
+            selector=f"{colors.selector}>"
+        )
 
-		if choice == "e":
-			exit("Thanks for playing!")
-		else:
-			return choice
+        if choice == "e":
+            exit("Thanks for playing!")
+        else:
+            return choice

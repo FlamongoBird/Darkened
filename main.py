@@ -46,36 +46,23 @@ term.onward()
 
 
 if save.save_exists():
-	player = save.restore_player()
+    player = save.restore_player()
 
 else:
-	player = player.Player()
-	
+    player = player.Player()
+    
 
 
 while True:
-	choice = menu.main_menu()
-	
-	if choice == 1:
-		game = game.Game(player)
-		game.play()
-		
-	
-	elif choice == 2:
-		print("PvP is not done yet.")
+    choice = menu.main_menu()
+    
+    if choice == 1:
+        game = game.Game(player)
+        game.play()
 
+    elif choice == 2:
+        print("Settings not ready")
+        
 
-	elif choice == 3:
-		print("Profile is not done yet.")
-
-
-	elif choice == 4:
-		print("Leaderboard is not done yet.")
-
-
-	elif choice == 5:
-		print("No News")
-
-
-	term.onward()
+    term.onward()
 
