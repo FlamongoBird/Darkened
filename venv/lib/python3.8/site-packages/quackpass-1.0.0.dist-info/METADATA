@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: quackpass
+Version: 1.0.0
+Summary: A simple password login for text based games.
+Home-page: https://github.com
+Author: Jonathan Calhoon
+Author-email: youcannotcontactmethroughthis@gmail.com
+License: UNKNOWN
+Project-URL: Bug Tracker, https://github.com
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+## QuackPass
+
+World's most secure password thingle thangle.
+
+### Setup
+
+```
+pip install quackpass
+```
+
+You need to be using a version greater then 3.6 for this library to work. 
+
+### Usage
+
+CODE
+```py
+from quackpass import quackpass
+
+
+manager = quackpass.LoginManager(salt=os.environ['salt'], mode="txt", file="passwords.txt")
+
+manager.add_user("test", "secretpassword")
+
+user = manager.login()
+
+print(f"Logged in as {user}")
+```
+
+OUTPUT
+```
+Username: test
+Password: secretpassword
+Logged in as test
+```
+
+
