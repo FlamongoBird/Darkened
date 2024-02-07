@@ -13,65 +13,9 @@ class Enemy():
         """Finds a suitable spawn for the enemy"""
         self.y, self.x = _map.find_spawn()
 
-
-    def get_loc_from_player(self, playerX, playerY):
-        """Find location based on player location"""
-
-        return [self.x-playerX, self.y-playerY]
-
-
-
-    def move_towards_player(self, playerX, playerY, dungeon):
-        """Move towards the player"""
-
-        # check if player is in range
-
-        if self.weapon and self.x-self.weapon._range <= playerX <= self.x+self.weapon._range and self.y-self.weapon._range <= playerY <= self.y+self.weapon._range:
-            return "attack"
-
-
-        if self.x-self._range <= playerX <= self.x+self._range and self.y-self._range <= playerY <= self.y+self._range:
-
-            # always move Y axis first
-
-            y = 0
-            x = 0
-
-            if self.y > playerY:
-                y = -1
-            elif self.y < playerY:
-                y = 1
-            elif self.y == playerY:
-                if self.x > playerX:
-                    x = -1
-                elif self.x < playerX:
-                    x = 1
-
-            # check for obstructions:
-
-            if dungeon[self.y+y][self.x+x] != " ":
-                y = 0
-                x = 0
-
-                # try moving x
-                if self.x > playerX:
-                    x = -1
-                elif self.x < playerX:
-                    x = 1
-                elif self.x == playerX:
-                    if self.y > playerY:
-                        y = -1
-                    elif self.y < playerY:
-                        y = 1
-
-
-            # If they are still obstructed then stay still
-
-            if dungeon[self.y+y][self.x+x] == " ":
-                self.y += y
-                self.x += x
-
-                return [x, y]
+    def move(self, _map, player):
+        """Moves towards the player if the player is within range"""
+        return
 
 
 
