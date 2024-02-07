@@ -1,7 +1,6 @@
 from getkey import getkey, keys
 from code import map_controller, loot, die, dungeon
 from enemies import enemy
-from game_data import game_data
 from battle import battle
 from save import save
 from config import colors, borders
@@ -45,7 +44,7 @@ class Game():
 
             # Display the map
 
-            self.map.display(self.player.quick_stats(), self.enemies)
+            self.map.display(self.game_data, self.player.quick_stats(), self.enemies)
 
             # Get a key input from the player
 
