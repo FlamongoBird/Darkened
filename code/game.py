@@ -28,7 +28,7 @@ class Game():
 
         self.enemies.append(goblin)
 
-        #goblin.spawn(self.dungeon)
+        goblin.spawn(self.map)
 
     def play(self):
         """Runs the main loop, displaying the map and
@@ -69,6 +69,8 @@ class Game():
             # check if player wants to attack
 
             elif key == "f":
+                # don't do anything for now
+                """
                 if not self.player.weapon:
                     text = "No weapon equipped!"
                     continue
@@ -89,6 +91,7 @@ class Game():
                         self.map.terminal.popup(colors.fancify(
                             f"*{e.name}* has died."), pause=0.01, border=borders.popup)
                         self.map.terminal.onward()
+                """
 
             elif key == "t":
                 # self.map.spawn_treasure()
