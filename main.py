@@ -65,5 +65,5 @@ while True:
         print("Settings not ready")
         
 
-    term.onward()
+    #term.onward()
 
