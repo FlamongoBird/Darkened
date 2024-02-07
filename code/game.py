@@ -24,6 +24,12 @@ class Game():
 
         self.enemies = []
 
+        goblin = enemy.gen_goblin()
+
+        self.enemies.append(goblin)
+
+        #goblin.spawn(self.dungeon)
+
     def play(self):
         """Runs the main loop, displaying the map and
             taking input for moves from the player"""

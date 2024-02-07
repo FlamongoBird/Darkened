@@ -36,9 +36,9 @@ term = terminal.Terminal()
 
 # display title
 
-term.display(title.split("\n"))
+#term.display(title.split("\n"))
 
-term.onward()
+#term.onward()
 
 
 # Initiate the Game Object and start the
@@ -54,7 +54,8 @@ else:
 
 
 while True:
-    choice = menu.main_menu()
+    #choice = menu.main_menu()
+    choice = 1
     
     if choice == 1:
         game = game.Game(player)
