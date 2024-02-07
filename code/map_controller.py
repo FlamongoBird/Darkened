@@ -31,17 +31,17 @@ class MapController():
         self.terminal = terminal.Terminal()
 
         self.legal_spaces = [" "]
-        self.special_spaces = ["t"]
+        self.special_spaces = ["t", "@"]
 
         self.offsetX = 0
         self.offsetY = 0
 
 
 
-    def spawn_treasure(self):
-        """Finds a random spot to spawn the treasure at"""
+    def spawn_item(self, symbol):
+        """Spawns the portal in a random spot"""
         spawn = self.find_spawn()
-        self.map[spawn[0]][spawn[1]] = "t"
+        self.map[spawn[0]][spawn[1]] = symbol
 
 
 

@@ -310,9 +310,9 @@ def build_dungeon():
     # run a little choppy.
 
     gen = Generator(
-        width=100,
-        height=100,
-        max_rooms=15,
+        width=50,
+        height=50,
+        max_rooms=4,
         min_room_xy=11,
         max_room_xy=15,
         rooms_overlap=False,

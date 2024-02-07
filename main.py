@@ -67,6 +67,7 @@ while True:
     
     if choice == 1:
         game = game.Game(player, game_data)
+        game.build_level()
         game.play()
 
     elif choice == 2:

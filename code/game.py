@@ -10,10 +10,12 @@ class Game():
     def __init__(self, player, game):
         """Intiate the Game object"""
         self.game_data = game
-
-        self.dungeon = dungeon.build_dungeon()
-
         self.player = player
+
+    
+    def build_level(self):
+        """Builds the level"""
+        self.dungeon = dungeon.build_dungeon()
 
         self.x = self.dungeon[1][0]
         self.y = self.dungeon[1][1]
@@ -21,7 +23,9 @@ class Game():
         self.map = map_controller.MapController(
             self.dungeon[0], self.x, self.y)
 
-        self.map.spawn_treasure()
+        self.map.spawn_item("t")
+        
+        self.map.spawn_item("@")
 
         self.enemies = []
 
@@ -97,6 +101,10 @@ class Game():
                 self.map.terminal.popup(colors.fancify(loot.open_chest(
                     self.player)), pause=0.01, border=borders.popup)
                 self.map.terminal.onward()
+            
+            elif self.map.touching == "@":
+                self.game_data.depth += 1
+                self.build_level()
 
     def win(self):
         """Displays the win screen"""
