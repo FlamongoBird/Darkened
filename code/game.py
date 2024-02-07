@@ -1,14 +1,16 @@
 from getkey import getkey, keys
 from code import map_controller, loot, die, dungeon
 from enemies import enemy
+from game_data import game_data
 from battle import battle
 from save import save
 from config import colors, borders
 
 
 class Game():
-    def __init__(self, player):
+    def __init__(self, player, game):
         """Intiate the Game object"""
+        self.game_data = game
 
         self.dungeon = dungeon.build_dungeon()
 
@@ -66,7 +68,6 @@ class Game():
                 print("Thanks for playing!")
                 exit()
 
-            # check if player wants to attack
 
             elif key == "f":
                 # don't do anything for now
@@ -92,39 +93,6 @@ class Game():
                             f"*{e.name}* has died."), pause=0.01, border=borders.popup)
                         self.map.terminal.onward()
                 """
-
-            elif key == "t":
-                # self.map.spawn_treasure()
-
-                e = enemy.gen_goblin()
-                e.alive = True
-                e.spawn(self.map.map)
-                self.enemies.append(e)
-
-            # move enemies:
-
-            for e in self.enemies:
-                if e.alive:
-                    cords = e.move_towards_player(
-                        self.map.x, self.map.y, self.map.map)
-                    if cords == "attack":
-                        dmg = e.weapon.damage
-                        self.player.hp -= dmg
-                        self.map.terminal.popup(colors.fancify(
-                            f"*{e.name}* attacked you!\n{e.name} dealt *{dmg}* damage!"), pause=0.01, border=borders.popup)
-                        self.map.terminal.onward()
-
-                        if self.player.hp < 1:
-                            self.map.display(
-                                self.player.quick_stats(), self.enemies)
-                            self.map.terminal.popup(colors.fancify(
-                                f"You have *died*."), pause=0.01, border=borders.popup)
-                            self.map.terminal.onward()
-                            die.die(f"Slayed by {e.name}")
-
-            # check if the player is touching
-            # the treasure, which is the win
-            # condition
 
             if self.map.touching == "t":
                 self.map.terminal.popup(colors.fancify(loot.open_chest(

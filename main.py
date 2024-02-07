@@ -1,4 +1,5 @@
 from code import terminal, game
+from game_data import game_data
 from config import colors
 from player import player
 from menu import menu
@@ -54,6 +55,9 @@ if save.save_exists():
 
 else:
     player = player.Player()
+
+
+game_data = game_data.GameData()
     
 
 
@@ -62,7 +66,7 @@ while True:
     choice = 1
     
     if choice == 1:
-        game = game.Game(player)
+        game = game.Game(player, game_data)
         game.play()
 
     elif choice == 2:
