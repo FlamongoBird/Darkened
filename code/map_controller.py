@@ -144,7 +144,7 @@ class MapController():
 				elif character == "╚":
 					output += f"{h} ╚═{colors.reset}"
 				elif character == ".":
-					output += f"{h}{color.rgb([0,0,0], [0,0,0])}   {colors.reset}"
+					output += f"{h}{color.rgb([0,0,0], [10,10,10])}   {colors.reset}"
 				elif character == "╠":
 					output += f"{h} ╠═{colors.reset}"
 				elif character == "╣":

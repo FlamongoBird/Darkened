@@ -6,6 +6,10 @@ from save import save
 import time
 
 
+# hides the cursor
+print("\033[?25l", end="")
+
+
 
 # Open the title file and print it to
 # the center of the screen.
@@ -65,5 +69,5 @@ while True:
         print("Settings not ready")
         
 
-    term.onward()
+    #term.onward()
 
