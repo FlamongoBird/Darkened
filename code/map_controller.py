@@ -29,7 +29,6 @@ class MapController():
 		
 
 		self.terminal = terminal.Terminal()
-		self.terminal.hide_cursor()
 
 		self.legal_spaces = [" "]
 		self.special_spaces = ["t"]
